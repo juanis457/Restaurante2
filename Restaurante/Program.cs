@@ -220,7 +220,7 @@ namespace sistemarestaurante
             void Carta()
             {
                 Console.Clear();
-                Console.WriteLine("El menu es este con las cantidades de los productos");
+                Console.WriteLine("El menú es este con las cantidades de los productos");
                 Console.WriteLine("  _____               _            _        ");
                 Console.WriteLine(" |  __ \\             | |          | |       ");
                 Console.WriteLine(" | |__) | __ ___   __| |_   _  ___| |_ ___  ");

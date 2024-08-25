@@ -221,12 +221,11 @@ namespace sistemarestaurante
             {
                 Console.Clear();
                 Console.WriteLine("El menú es este con las cantidades de los productos");
-                Console.WriteLine("  _____               _            _        ");
-                Console.WriteLine(" |  __ \\             | |          | |       ");
-                Console.WriteLine(" | |__) | __ ___   __| |_   _  ___| |_ ___  ");
-                Console.WriteLine(" |  ___/ '__/ _ \\ / _` | | | |/ __| __/ _ \\ ");
-                Console.WriteLine(" | |   | | | (_) | (_| | |_| | (__| || (_) |");
-                Console.WriteLine(" |_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__\\___/ ");
+                Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
+                Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("P      R   R   OOO   DDDD   UUUU   CCCC    T      OOO ");
 
                 if (mostro == false)
                 {

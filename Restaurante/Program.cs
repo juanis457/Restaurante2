@@ -28,12 +28,12 @@ namespace sistemarestaurante
             void Saludo()
             {
                 Console.WriteLine("  ____  _                            _     _            ");
-                Console.WriteLine(" | __ )(_) ___ _ __ ___   __ _ _ __ | |__ (_)_ __   ___        ");
-                Console.WriteLine(" |  _ \\| |/ _ \\ '_ ` _ \\ / _` | '_ \\| '_ \\| | '_ \\ / _ \\");
-                Console.WriteLine(" | |_) | |  __/ | | | | | (_| | | | | | | | | | | |  __/       ");
-                Console.WriteLine(" |____/|_|\\___|_| |_| |_|\\__,_|_| |_|_| |_|_|_| |_|\\___|   ");  
-                Console.WriteLine("                                                        ");
-                Console.WriteLine("                                                        ");
+Console.WriteLine(" | __ )(_) ___ _ __ ___   __ _ _ __ | |__ (_)_ __   ___ ");
+Console.WriteLine(" |  _ \\| |/ _ \\ '_ ` _ \\ / _` | '_ \\| '_ \\| | '_ \\ / _ \\");
+Console.WriteLine(" | |_) | |  __/ | | | | | (_| | | | | | | | | | | |  __/");
+Console.WriteLine(" |____/|_|\\___|_| |_| |_|\\__,_|_| |_|_| |_|_|_| |_|\\___|");
+Console.WriteLine("                                                        ");
+Console.WriteLine("                                                        ");
 
                 Console.WriteLine(" Sea Bienvenido a nuestro restaurante El Rincón Gourmet ");
                 Console.WriteLine("Oprima una tecla para continuar");

@@ -12,3 +12,4 @@ C:\Users\1786824\SistemaRestaurante\Restaurante\obj\Debug\net8.0\refint\Restaura
 C:\Users\1786824\SistemaRestaurante\Restaurante\obj\Debug\net8.0\Restaurante.pdb
 C:\Users\1786824\SistemaRestaurante\Restaurante\obj\Debug\net8.0\Restaurante.genruntimeconfig.cache
 C:\Users\1786824\SistemaRestaurante\Restaurante\obj\Debug\net8.0\ref\Restaurante.dll
+C:\Users\1786824\SistemaRestaurante\Restaurante\obj\Debug\net8.0\Restaurante.sourcelink.json

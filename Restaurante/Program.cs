@@ -27,11 +27,11 @@ namespace sistemarestaurante
             Menu();
             void Saludo()
             {
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD   OOO ");
-             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D O   O");
-             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D O   O");
-             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D O   O");
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD   OOO ");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD    OOO ");
+             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D  O   O");
+             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D  O   O");
+             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D  O   O");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD    OOO ");
 
                 Console.WriteLine(" ");
                 Console.WriteLine("Sea Bienvenido al Rincón gourmet, donde encontrará gran variedad de preparaciones que deleitarán su paladar. ");
@@ -45,12 +45,13 @@ namespace sistemarestaurante
                 bool confirmar = true;
                 do
                 {
-                    
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
+                        
+              
+                    Console.WriteLine(" **    **  *******  **    **  **    ** ");
+                    Console.WriteLine(" ***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine(" ** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine(" **    **  **       **  ****  **    ** ");
+                    Console.WriteLine(" **    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Configurar programa");
                     Console.WriteLine("2.Registrar pedido y factura");                    
@@ -81,11 +82,11 @@ namespace sistemarestaurante
                 do
                 {
 
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
+                    Console.WriteLine(" **    **  *******  **    **  **    ** ");
+                    Console.WriteLine(" ***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine(" ** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine(" **    **  **       **  ****  **    ** ");
+                    Console.WriteLine(" **    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Ingresar numero de mesas");
                     Console.WriteLine("2.Ingresar producto");                    
@@ -219,8 +220,7 @@ namespace sistemarestaurante
             void Carta()
             {
                 Console.Clear();
-                Console.WriteLine("Este es el menú con los productos y sus respectivas cantidades");
-                Console.WriteLine(" ");
+                Console.WriteLine("El menú es este con las cantidades de los productos");
                 Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
                 Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
-    internal class pedidos
+    internal class Pedido
     {
         private string[,] pedidos = new string[10,3];
 

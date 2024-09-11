@@ -10,7 +10,7 @@ namespace sistemarestaurante
     {
         private string[,] pedidos = new string[10,3];
 
-        public string[,] Pedidos { get => pedidos; set => pedidos = value; }
+        public string[,] Pedidos { get => peedidos; set => pedidos = value; }
 
         
     }

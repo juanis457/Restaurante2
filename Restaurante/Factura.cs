@@ -10,7 +10,7 @@ namespace sistemarestaurante
     {
         private string fecha;        
         private string medio_pago;
-        private float iva = Variable.IMPUESTO;
+        private float iva = Constantes.IMPUESTO;
         private float total;             
         private int numero_factura;
         private int mesa;

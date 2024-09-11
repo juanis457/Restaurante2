@@ -8,8 +8,6 @@ namespace sistemarestaurante
 {
     internal class Mesas
     {
-
-
         private int mesasdisponibles;
         private string producto;
         private int mesaatendida;
@@ -17,10 +15,13 @@ namespace sistemarestaurante
         public int Mesasdispo { get => mesasdisponibles; set => mesasdisponibles = value; }
         public string Producto { get => producto; set => producto = value; }
         public int Mesaatendida { get => mesaatendida; set => mesaatendida = value; }
-        public Mesas( byte Mesa, byte cantidadmesa)
-        {            
+        public Mesas( byte Mesa, byte cantidadmesa) 
+        {    
+            
             this.mesaatendida = Mesa;
             this.mesasdisponibles = cantidadmesa;
+            this.producto = string.Empty; //porque puede ser nulo
+    
         }
 
         public void MostrarDatos()

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj": {}
+    "C:\\Users\\Ganso\\Nueva carpeta (2)\\Restaurante2\\Restaurante\\Restaurante.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj": {
+    "C:\\Users\\Ganso\\Nueva carpeta (2)\\Restaurante2\\Restaurante\\Restaurante.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj",
+        "projectUniqueName": "C:\\Users\\Ganso\\Nueva carpeta (2)\\Restaurante2\\Restaurante\\Restaurante.csproj",
         "projectName": "Restaurante",
-        "projectPath": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj",
-        "packagesPath": "C:\\Users\\1786824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\obj\\",
+        "projectPath": "C:\\Users\\Ganso\\Nueva carpeta (2)\\Restaurante2\\Restaurante\\Restaurante.csproj",
+        "packagesPath": "C:\\Users\\Ganso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ganso\\Nueva carpeta (2)\\Restaurante2\\Restaurante\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1786824\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ganso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

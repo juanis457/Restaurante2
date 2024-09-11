@@ -15,7 +15,7 @@ namespace sistemarestaurante
         private int numero_factura;
         private int mesa;
         private string[,] pedido;
-        private string[] precios;
+        private string[] precios; //Esta aquí declarada pero no se llega a usar
         string[,] factura = new string[17,3];
 
 
@@ -26,7 +26,8 @@ namespace sistemarestaurante
             this.total = total;            
             this.numero_factura = numero_factura;
             this.mesa = mesa;
-            this.pedido = pedido;            
+            this.pedido = pedido;
+            this.precios = precios; //en caso de que se use es importante ponerla acá
         }
 
         public string Fecha { get => fecha; set => fecha = value; }

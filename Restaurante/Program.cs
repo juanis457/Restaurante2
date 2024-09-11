@@ -291,7 +291,7 @@ namespace sistemarestaurante
                     do
                     {
                         Console.WriteLine("Ingrese el cambio que quiere hacerle a la carta");
-                        cambio = Console.ReadLine();
+                        cambio = Console.ReadLine() ??string.Empty;
 
                         if (respu2 == 1)
                         {

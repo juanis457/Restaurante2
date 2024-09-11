@@ -12,9 +12,9 @@ namespace sistemarestaurante
             carta = new string[10, 3];
             bool mostro = false;
             string[,] compramesa = new string[10, 3];
-            Mesas[] numeroMesas = null;
-            Mesas administrarmesas;            
-            Producto producto;
+            Mesas[] numeroMesas = null; //cuidado con este null, posiblemente sea bueno ponerle una longitud al array new Mesas[10];
+            Mesas administrarmesas;     //private Mesas numeroMesas[]; para ponerlo primero para que funcione
+            Producto producto;           
             producto = new Producto();
             Pedido pedido;
             pedido = new Pedido();

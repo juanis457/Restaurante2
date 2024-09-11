@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj": {}
+    "C:\\Users\\FAMISACA\\Documents\\GitHub\\Restaurante2\\Restaurante\\Restaurante.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj": {
+    "C:\\Users\\FAMISACA\\Documents\\GitHub\\Restaurante2\\Restaurante\\Restaurante.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj",
+        "projectUniqueName": "C:\\Users\\FAMISACA\\Documents\\GitHub\\Restaurante2\\Restaurante\\Restaurante.csproj",
         "projectName": "Restaurante",
-        "projectPath": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\Restaurante.csproj",
-        "packagesPath": "C:\\Users\\1786824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1786824\\SistemaRestaurante\\Restaurante\\obj\\",
+        "projectPath": "C:\\Users\\FAMISACA\\Documents\\GitHub\\Restaurante2\\Restaurante\\Restaurante.csproj",
+        "packagesPath": "C:\\Users\\FAMISACA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FAMISACA\\Documents\\GitHub\\Restaurante2\\Restaurante\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1786824\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\FAMISACA\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

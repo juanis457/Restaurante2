@@ -82,11 +82,11 @@ namespace sistemarestaurante
                 do
                 {
 
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
+                    Console.WriteLine(" **    **  *******  **    **  **    ** ");
+                    Console.WriteLine(" ***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine(" ** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine(" **    **  **       **  ****  **    ** ");
+                    Console.WriteLine(" **    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Ingresar numero de mesas");
                     Console.WriteLine("2.Ingresar producto");                    

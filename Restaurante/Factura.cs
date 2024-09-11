@@ -10,7 +10,7 @@ namespace sistemarestaurante
     {
         private string fecha;        
         private string medio_pago;
-        private float iva = Variable.IMPUESTO;
+        private float iva = Constantes.IMPUESTO;
         private float total;             
         private int numero_factura;
         private int mesa;
@@ -99,13 +99,11 @@ namespace sistemarestaurante
         }
         public void GenerarFactura()
         {
-            Console.WriteLine(" _____   ____    __ ______  __ __  ____    ____  ");
-            Console.WriteLine("|     | /    |  /  ]      ||  |  ||    \\  /    |");
-            Console.WriteLine("|   __||  o  | /  /|      ||  |  ||  D  )|  o  |");
-            Console.WriteLine("|  |_  |     |/  / |_|  |_||  |  ||    / |     |");
-            Console.WriteLine("|   _] |  _  /   \\_  |  |  |  :  ||    \\ |  _  |");
-            Console.WriteLine("|  |   |  |  \\     | |  |  |     ||  .  \\|  |  |");
-            Console.WriteLine("|__|   |__|__|\\____| |__|   \\__,_||__|\\_||__|__|");
+            Console.WriteLine("F F F F F   A A A     C C C     T T T T    U     U  R R R R    A A A  ");
+            Console.WriteLine("F          A     A   C             T       U     U  R     R   A     A ");
+            Console.WriteLine("F F F      A A A A   C             T       U     U  R R R     A A A A ");
+            Console.WriteLine("F          A     A   C             T       U     U  R   R     A     A ");
+            Console.WriteLine("F          A     A    C C C        T         U U    R    R    A     A ");
             for (int i = 0; i < 16; i++)
             {
                 for(int j = 0; j < 3; j++)

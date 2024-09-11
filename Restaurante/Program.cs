@@ -33,9 +33,9 @@ namespace sistemarestaurante
              Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D O   O");
              Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD   OOO ");
 
-
-                Console.WriteLine(" Sea Bienvenido a nuestro restaurante El Rincón Gourmet donde encontrará variedad de preparaciones que deleitarán su paladar. ");
-                Console.WriteLine("Oprima una tecla para continuar");
+                Console.WriteLine(" ");
+                Console.WriteLine("Sea Bienvenido al Rincón gourmet, donde encontrará gran variedad de preparaciones que deleitarán su paladar. ");
+                Console.WriteLine("Oprima cualquier tecla para continuar");
                 Console.ReadKey();
             }
 
@@ -54,7 +54,7 @@ namespace sistemarestaurante
                     Console.WriteLine("|_|  |_|\\___|_| |_|\\__,_|");
                     Console.WriteLine();
                     Console.WriteLine("1.Configurar programa");
-                    Console.WriteLine("2.Registrar pedido y registrar factura");                    
+                    Console.WriteLine("2.Registrar pedido y factura");                    
                     Console.WriteLine("3.Salir");
                     byte opcion;
                     do
@@ -67,7 +67,7 @@ namespace sistemarestaurante
                         case 1: Configurar(); confirmar = false; break;
                         case 2: RegistrarPedido(); confirmar = false; break;
                         case 3: confirmar = false; break;                        
-                        default: Console.WriteLine("Ingrese una opción valida"); Console.WriteLine("Oprima una tecla para continuar");
+                        default: Console.WriteLine("Ingrese una opción valida"); Console.WriteLine("Oprima cualquier tecla para continuar");
                             Console.ReadKey(); Console.Clear(); ; break;
                     }
                 } while (confirmar);
@@ -221,6 +221,7 @@ namespace sistemarestaurante
             {
                 Console.Clear();
                 Console.WriteLine("Este es el menú con los productos y sus respectivas cantidades");
+                Console.WriteLine(" ");
                 Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
                 Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");
@@ -453,12 +454,6 @@ namespace sistemarestaurante
 
             }
             
-            
-            
-
-
-            
-
 
         }
 

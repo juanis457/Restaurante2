@@ -221,7 +221,7 @@ namespace sistemarestaurante
             {
                 Console.Clear();
                 Console.WriteLine("El menú es este con las cantidades de los productos");
-                Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
+                Console.WriteLine("PPPP   RRRR    OOO   DDDD   U   U  CCCC  TTTTT    OOO ");
                 Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");

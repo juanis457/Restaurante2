@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
-    internal class Variable
+    internal class Constantes
     {
-        public const string NOMBRE_NEGOCIO = "Funny Bussiness";
+        public const string NOMBRE_NEGOCIO = "EL RICON GOURMET";
         public const string ERROR_AL_BUSCAR_FACTURA = "El id de la fatura no existe";
         public const int ANCHO_TIRILLA = 32;
         public const int CANTIDAD_CARACTERES_NOMBRE_PRODUCTO = 12;

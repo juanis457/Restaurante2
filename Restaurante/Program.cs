@@ -10,7 +10,7 @@ namespace sistemarestaurante
             byte id = 0;
             string[,] carta;
             carta = new string[10, 3];
-            bool mostro = false;
+            bool mostrar = false;
             string[,] compramesa = new string[10, 3];
             Mesas[] numeroMesas = null;
             Mesas administrarmesas;            
@@ -19,7 +19,7 @@ namespace sistemarestaurante
             Pedido pedido;
             pedido = new Pedido();
             Factura factura;
-            Variable variable = new Variable();
+            Constantes constantes = new Constantes();
 
 
             Saludo();
@@ -46,12 +46,11 @@ namespace sistemarestaurante
                 do
                 {
                     
-                    Console.WriteLine(" __  __ ");
-                    Console.WriteLine("|  \\/  |  ");
-                    Console.WriteLine("| \\  / | ___ _ __  _   _ ");
-                    Console.WriteLine("| |\\/| |/ _ \\ '_ \\| | | | ");
-                    Console.WriteLine("| |  | |  __/ | | | |_| |");
-                    Console.WriteLine("|_|  |_|\\___|_| |_|\\__,_|");
+                    Console.WriteLine("**    **  *******  **    **  **    ** ");
+                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine("**    **  **       **  ****  **    ** ");
+                    Console.WriteLine("**    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Configurar programa");
                     Console.WriteLine("2.Registrar pedido y registrar factura");                    
@@ -227,7 +226,7 @@ namespace sistemarestaurante
                 Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("P      R   R   OOO   DDDD   UUUU   CCCC    T      OOO ");
 
-                if (mostro == false)
+                if (mostrar == false)
                 {
                     for (int i = 0; i < 10; i++)
                     {
@@ -249,7 +248,7 @@ namespace sistemarestaurante
                         }
                         Console.WriteLine();
                     }
-                    mostro = true;
+                    mostrar = true;
                 }
                 else
                 {
@@ -272,10 +271,11 @@ namespace sistemarestaurante
                 {
                     byte respu;
                     byte respu2;
-                    Console.WriteLine(" ____  ____  __  ____  __   ____  ");
-                    Console.WriteLine("(  __)(    \\(  )(_  _)/ _\\ (  _ \\");
-                    Console.WriteLine(" ) _)  ) D ( )(   )( /    \\ )   /");
-                    Console.WriteLine("(____)(____/(__) (__)\\_/\\_/(__\\_)");
+                    Console.WriteLine("E E E E E   D D D D    I I I I  T T T T    A A A   R R R R"  );
+                    Console.WriteLine("E           D       D     I       T       A     A  R      R" );
+                    Console.WriteLine("E E E       D       D     I       T       A A A A  R R R"    );
+                    Console.WriteLine("E           D       D     I       T       A     A  R   R"    );
+                    Console.WriteLine("E E E E E   D D D D     I I I     T       A     A  R    R"   );
                     do
                     {
                         Console.WriteLine("Que fila quieres editar?");
@@ -417,7 +417,7 @@ namespace sistemarestaurante
                     }                    
                 }
                 byte confirm2;
-                Console.WriteLine("Quieres seguir comprando?");
+                Console.WriteLine("Deseas seguir comprando?");
                 do
                 {
                     Console.WriteLine("(1)Si    (2)No");
@@ -429,7 +429,7 @@ namespace sistemarestaurante
                 else if (confirm2 == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Estos son los productos que has pedido");
+                    Console.WriteLine("Estos son los productos que han pedido");
                     for (int i = 0; i < 10; i++)
                     {
                         for (int j = 0;j < 3; j++)
@@ -446,7 +446,7 @@ namespace sistemarestaurante
                         }
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Oprime una tecla para continuar");
+                    Console.WriteLine("Oprima una tecla para continuar");
                     Console.ReadKey();
                     Menu();
                 }

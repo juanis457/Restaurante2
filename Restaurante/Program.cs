@@ -27,11 +27,11 @@ namespace sistemarestaurante
             Menu();
             void Saludo()
             {
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD   OOO ");
-             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D O   O");
-             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D O   O");
-             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D O   O");
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD   OOO ");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD    OOO ");
+             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D  O   O");
+             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D  O   O");
+             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D  O   O");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD    OOO ");
 
 
                 Console.WriteLine(" Sea Bienvenido a nuestro restaurante El Rincón Gourmet ");

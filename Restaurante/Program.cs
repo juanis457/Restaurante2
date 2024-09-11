@@ -45,12 +45,9 @@ namespace sistemarestaurante
                 bool confirmar = true;
                 do
                 {
+                        
+              
                     
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Configurar programa");
                     Console.WriteLine("2.Registrar pedido y registrar factura");                    

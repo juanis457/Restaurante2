@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
-    internal class Constantes
+    internal class Constante
     {
         public const string NOMBRE_NEGOCIO = "EL RINCON GOURMET";
         public const string ERROR_AL_BUSCAR_FACTURA = "El id de la factura no existe";

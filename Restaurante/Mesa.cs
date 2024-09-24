@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
-    internal class Mesas
+    internal class Mesa
     {
 
 
@@ -17,7 +17,7 @@ namespace sistemarestaurante
         public int Mesasdispo { get => mesasdisponibles; set => mesasdisponibles = value; }
         public string Producto { get => producto; set => producto = value; }
         public int Mesaatendida { get => mesaatendida; set => mesaatendida = value; }
-        public Mesas( byte Mesa, byte cantidadmesa)
+        public Mesa( byte Mesa, byte cantidadmesa)
         {            
             this.mesaatendida = Mesa;
             this.mesasdisponibles = cantidadmesa;

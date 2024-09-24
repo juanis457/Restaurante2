@@ -10,12 +10,12 @@ namespace sistemarestaurante
     {
         private string fecha;        
         private string medio_pago;
-        private float iva = Constantes.IMPUESTO;
+        private float iva = Constante.IMPUESTO;
         private float total;             
         private int numero_factura;
         private int mesa;
         private string[,] pedido;
-        private string[] precios;
+        private string[] precio;
         string[,] factura = new string[17,3];
 
 

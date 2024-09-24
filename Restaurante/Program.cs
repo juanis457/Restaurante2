@@ -12,14 +12,14 @@ namespace sistemarestaurante
             carta = new string[10, 3];
             bool mostrar = false;
             string[,] compramesa = new string[10, 3];
-            Mesas[] numeroMesas = null;
-            Mesas administrarmesas;            
+            Mesa[] numeroMesas = null;
+            Mesa administrarmesas;            
             Producto producto;
             producto = new Producto();
             Pedido pedido;
             pedido = new Pedido();
             Factura factura;
-            Constantes constantes = new Constantes();
+            Constante constante = new Constante();
 
 
             Saludo();
@@ -105,7 +105,7 @@ namespace sistemarestaurante
                             {
                                 Console.WriteLine("Ingrese el numero de mesas disponibles");
                             } while (!byte.TryParse(Console.ReadLine(), out num));
-                            numeroMesas = new Mesas[num];
+                            numeroMesas = new Mesa[num];
                             
                             
                             confirmar = false;
@@ -204,7 +204,7 @@ namespace sistemarestaurante
                     if (id > 0 && id < (numeroMesas.Length+1))
                     {
                        Console.WriteLine("Perfecto la mesa que esta atendiendo es la numero " + id);
-                        administrarmesas = new Mesas(id, num);
+                        administrarmesas = new Mesa(id, num);
                         administrarmesas.MostrarDatos();
                         confirmar = false;
                     }

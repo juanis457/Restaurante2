@@ -12,8 +12,8 @@ namespace sistemarestaurante
             carta = new string[10, 3];
             bool mostrar = false;
             string[,] compramesa = new string[10, 3];
-            Mesa[] numeroMesas = null;
-            Mesa administrarmesas;            
+            Mesa[] numeroMesa = null;
+            Mesa administrarmesa;            
             Producto producto;
             producto = new Producto();
             Pedido pedido;
@@ -27,15 +27,15 @@ namespace sistemarestaurante
             Menu();
             void Saludo()
             {
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD   OOO ");
-             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D O   O");
-             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D O   O");
-             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D O   O");
-             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD   OOO ");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD    OOO ");
+             Console.WriteLine("B   B    I    E      NN  N  V   V  E      NN  N    I    D   D  O   O");
+             Console.WriteLine("BBBB     I    EEEE   N N N  V   V  EEEE   N N N    I    D   D  O   O");
+             Console.WriteLine("B   B    I    E      N  NN   V V   E      N  NN    I    D   D  O   O");
+             Console.WriteLine("BBBB   IIIII  EEEEE  N   N    V    EEEEE  N   N  IIIII  DDDD    OOO ");
 
-
-                Console.WriteLine(" Sea Bienvenido a nuestro restaurante El Rincón Gourmet ");
-                Console.WriteLine("Oprima una tecla para continuar");
+                Console.WriteLine(" ");
+                Console.WriteLine("Sea Bienvenido al Rincón gourmet, donde encontrará gran variedad de preparaciones que deleitarán su paladar. ");
+                Console.WriteLine("Oprima cualquier tecla para continuar");
                 Console.ReadKey();
             }
 
@@ -47,14 +47,14 @@ namespace sistemarestaurante
                 {
                         
               
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
+                    Console.WriteLine(" **    **  *******  **    **  **    ** ");
+                    Console.WriteLine(" ***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine(" ** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine(" **    **  **       **  ****  **    ** ");
+                    Console.WriteLine(" **    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Configurar programa");
-                    Console.WriteLine("2.Registrar pedido y registrar factura");                    
+                    Console.WriteLine("2.Registrar pedido y factura");                    
                     Console.WriteLine("3.Salir");
                     byte opcion;
                     do
@@ -67,7 +67,7 @@ namespace sistemarestaurante
                         case 1: Configurar(); confirmar = false; break;
                         case 2: RegistrarPedido(); confirmar = false; break;
                         case 3: confirmar = false; break;                        
-                        default: Console.WriteLine("Ingrese una opción valida"); Console.WriteLine("Oprima una tecla para continuar");
+                        default: Console.WriteLine("Ingrese una opción valida"); Console.WriteLine("Oprima cualquier tecla para continuar");
                             Console.ReadKey(); Console.Clear(); ; break;
                     }
                 } while (confirmar);
@@ -82,11 +82,11 @@ namespace sistemarestaurante
                 do
                 {
 
-                    Console.WriteLine("**    **  *******  **    **  **    ** ");
-                    Console.WriteLine("***  ***  **       ***   **  **    ** ");
-                    Console.WriteLine("** ** **  *****    ** ** **  **    ** ");
-                    Console.WriteLine("**    **  **       **  ****  **    ** ");
-                    Console.WriteLine("**    **  *******  **   ***   ******  ");
+                    Console.WriteLine(" **    **  *******  **    **  **    ** ");
+                    Console.WriteLine(" ***  ***  **       ***   **  **    ** ");
+                    Console.WriteLine(" ** ** **  *****    ** ** **  **    ** ");
+                    Console.WriteLine(" **    **  **       **  ****  **    ** ");
+                    Console.WriteLine(" **    **  *******  **   ***   ******  ");
                     Console.WriteLine();
                     Console.WriteLine("1.Ingresar numero de mesas");
                     Console.WriteLine("2.Ingresar producto");                    
@@ -105,7 +105,7 @@ namespace sistemarestaurante
                             {
                                 Console.WriteLine("Ingrese el numero de mesas disponibles");
                             } while (!byte.TryParse(Console.ReadLine(), out num));
-                            numeroMesas = new Mesa[num];
+                            numeroMesa = new Mesa[num];
                             
                             
                             confirmar = false;
@@ -125,19 +125,19 @@ namespace sistemarestaurante
             
             void RegistrarPedido()
             {
-                if(numeroMesas == null) {
+                if(numeroMesa == null) {
                     Console.WriteLine("Porfavor ingrese primero las mesas que hay disponibles en la sección de \"Ingresar número de mesas\"");
                     Console.WriteLine("Oprima una tecla para continuar");
                     Console.ReadKey();
                     Menu();
                 }
-                Console.WriteLine(numeroMesas.Length);
+                Console.WriteLine(numeroMesa.Length);
                 Console.WriteLine("Seleccionar la mesa que se esta atendiendo");
                 ImprimirMesas();
                 if (pedido.Pedidos[0,0] == null)
                 {
-                    Console.WriteLine("Por favor ingrese primero los productos que va a comprar");
-                    Console.WriteLine("Oprima alguna tecla para continuar");
+                    Console.WriteLine("Por favor ingrese primero los productos que desea comprar");
+                    Console.WriteLine("Oprima cualquier tecla para continuar");
                     Console.ReadKey();
                     Configurar();
                 }
@@ -156,7 +156,7 @@ namespace sistemarestaurante
                         {
                             if (pedido.Pedidos[i, 0].ToLower() == carta[j, 0].ToLower())
                             {
-                                Console.WriteLine("Calculando");
+                                Console.WriteLine("Calculando...");
                                 subtotal = Convert.ToInt16(pedido.Pedidos[i, 2]) * Convert.ToInt16(carta[j, 1]);
                                 total = total + subtotal;
                             }
@@ -179,7 +179,7 @@ namespace sistemarestaurante
                 factura = new Factura(fecha, mediopago, total, numfactura, id, pedido.Pedidos, precio);
                 factura.Organizardatos();
                 factura.GenerarFactura();
-                Console.WriteLine("Oprima una tecla para continuar");
+                Console.WriteLine("Oprima cualquier tecla para continuar");
                 Console.ReadKey();
                 Menu();
             }
@@ -187,8 +187,8 @@ namespace sistemarestaurante
             void ImprimirMesas()
             {
                 bool confirmar = true;
-                Console.WriteLine("Mesas");
-                for (int i = 0; i < numeroMesas.Length; i++)
+                Console.WriteLine("Mesa");
+                for (int i = 0; i < numeroMesa.Length; i++)
                 {
                     Console.WriteLine($"{i + 1}. Mesa {i + 1}");                                                                            
                 }
@@ -199,20 +199,20 @@ namespace sistemarestaurante
                     do
                     {
                         
-                        Console.WriteLine("Ingrese la mesa que se esta atendiendo");
+                        Console.WriteLine("Ingrese la mesa que se está atendiendo");
                     } while (!byte.TryParse(Console.ReadLine(), out id));
-                    if (id > 0 && id < (numeroMesas.Length+1))
+                    if (id > 0 && id < (numeroMesa.Length+1))
                     {
                        Console.WriteLine("Perfecto la mesa que esta atendiendo es la numero " + id);
-                        administrarmesas = new Mesa(id, num);
-                        administrarmesas.MostrarDatos();
+                        administrarmesa = new Mesa (id, num);
+                        administrarmesa.MostrarDatos();
                         confirmar = false;
                     }
                     else
                     {
                         Console.WriteLine("Ingrese una mesa valida");
                     }
-                } while (confirmar == true);
+                } while (confirmar);
 
             }
 
@@ -262,7 +262,7 @@ namespace sistemarestaurante
                         Console.WriteLine();
                     }
                 }               
-                Console.WriteLine("Quieres cambiar algo de la carta?");
+                Console.WriteLine("Desea cambiar algo de la carta?");
                 byte confirm;
                 do
                 {                    
@@ -279,29 +279,29 @@ namespace sistemarestaurante
                     Console.WriteLine("E E E E E   D D D D     I I I     T       A     A  R    R"   );
                     do
                     {
-                        Console.WriteLine("Que fila quieres editar?");
+                        Console.WriteLine("Que fila desea editar?");
                         
                     } while (!byte.TryParse(Console.ReadLine(), out respu) || (respu >= 10 && respu <= 1));                    
                     do
                     {
-                        Console.WriteLine("Que columna quieres editar?");
+                        Console.WriteLine("Que columna desea editar?");
                     } while (!byte.TryParse(Console.ReadLine(), out respu2) || (respu2 >= 3 && respu2 <= 1));
                     string cambio;
                     bool valides = false;
                     do
                     {
                         Console.WriteLine("Ingrese el cambio que quiere hacerle a la carta");
-                        cambio = Console.ReadLine();
+                        cambio = Console.ReadLine() ??string.Empty;
 
                         if (respu2 == 1)
                         {
-                            Console.WriteLine("Registrando cambio1");
+                            Console.WriteLine("Registrando cambio 1");
                             carta[respu-1, respu2-1] = cambio;                                                                              
                             valides = true;
                         }
                         else if (respu2 == 2)
                         {
-                            Console.WriteLine("Registrando cambio2");
+                            Console.WriteLine("Registrando cambio 2");
                             if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) >= 1))
                             {
                                 carta[respu - 1, respu2 - 1] = cambio;
@@ -315,7 +315,7 @@ namespace sistemarestaurante
                         }
                         else if(respu2 == 3)
                         {
-                            Console.WriteLine("Registrando cambio3");
+                            Console.WriteLine("Registrando cambio 2");
                             if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) < 1))
                             {
                                 carta[respu-1, respu2-1] = cambio;                                
@@ -323,7 +323,7 @@ namespace sistemarestaurante
                             }
                             else
                             {
-                                Console.WriteLine("Ingrese un opción valida, el valor que ingresaste es demasido alto, no tenemos tanta cantidad de productos");
+                                Console.WriteLine("Ingrese una opción valida, el valor que ingresaste es demasido alto ó no tenemos tanta cantidad de productos");
                                 valides = false;
                             }
                         }
@@ -342,7 +342,7 @@ namespace sistemarestaurante
                         }
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Oprime una tecla para continuar");
+                    Console.WriteLine("Oprima cualquier tecla para continuar");
                     Console.ReadKey();
                     Carta();
 
@@ -360,7 +360,7 @@ namespace sistemarestaurante
             void Compra()
             {
                 
-                Console.WriteLine("Ingrese el producto que se va a comprar");
+                Console.WriteLine("Ingrese el nombre del producto que desea comprar");
                 string compra = Console.ReadLine();
                 for (int i = 0; i < 10; i++)
                 {                    
@@ -372,7 +372,7 @@ namespace sistemarestaurante
                             {                                
                                 if (compramesa[j, 0].ToLower() == compra.ToLower())
                                 {
-                                    Console.WriteLine("Registrando datos");
+                                    Console.WriteLine("Registrando datos...");
                                     int suma;
                                     suma = Convert.ToInt16(compramesa[j, 2]);
                                     suma = suma + 1;
@@ -397,7 +397,7 @@ namespace sistemarestaurante
                                     }                                    
                                     if (k == 9 && revision == false) 
                                     {
-                                        Console.WriteLine("Registrando datos");
+                                        Console.WriteLine("Registrando datos...");
                                         pedido.Pedidos[j, 0] = compra;
                                         compramesa[j, 0] = compra;                                        
                                         pedido.Pedidos[j, 2] = "1";
@@ -418,7 +418,7 @@ namespace sistemarestaurante
                     }                    
                 }
                 byte confirm2;
-                Console.WriteLine("Deseas seguir comprando?");
+                Console.WriteLine("Quieres seguir comprando?");
                 do
                 {
                     Console.WriteLine("(1)Si    (2)No");
@@ -447,19 +447,13 @@ namespace sistemarestaurante
                         }
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Oprima una tecla para continuar");
+                    Console.WriteLine("Oprime una tecla para continuar");
                     Console.ReadKey();
                     Menu();
                 }
 
             }
             
-            
-            
-
-
-            
-
 
         }
 

@@ -36,7 +36,21 @@ namespace sistemarestaurante
             }
         }
 
-      
+        // Método para buscar un producto por nombre
+        public void BuscarProducto(string nombre)
+        {
+            int index = Array.IndexOf(productos.Nombre, nombre);
+
+            if (index != -1)
+            {
+                Console.WriteLine($"Producto encontrado: {productos.Nombre[index]} - Precio: {productos.Precio[index]} - Cantidad: {productos.Cantidad[index]}");
+            }
+            else
+            {
+                Console.WriteLine($"El producto {nombre} no existe en el inventario.");
+            }
+        }
+
       
     }
 }

@@ -51,6 +51,21 @@ namespace sistemarestaurante
             }
         }
 
+        // Método para actualizar la cantidad de un producto
+        public void ActualizarCantidad(string nombre, string nuevaCantidad)
+        {
+            int index = Array.IndexOf(productos.Nombre, nombre);
+
+            if (index != -1)
+            {
+                productos.Cantidad[index] = nuevaCantidad;
+                Console.WriteLine($"Cantidad actualizada para {nombre}: {nuevaCantidad}");
+            }
+            else
+            {
+                Console.WriteLine($"El producto {nombre} no existe en el inventario.");
+            }
+        }
       
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.IO; // Agregamos la biblioteca necesaria para manejar archivos
 using sistemarestaurante; // Asumimos que este espacio de nombres contiene la clase Factura y otros elementos necesarios
+using System.Text;
 
 namespace Restaurante
 {
@@ -70,8 +71,52 @@ namespace Restaurante
             }
 
             return facturas;
+           }
+                public string FormatearLineasFacturas(Factura[] facturas)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("FECHA;NOMBRE PRODUCTOS;PRECIO;MEDIO DE PAGO;ESTADO ACTUAL;NUMERO FACTURA\n");
+
+                foreach (var factura in facturas)
+                {
+                if (factura != null)
+                {
+                    sb.Append($"{factura.Fecha};");
+                    sb.Append($"{factura.Medio_pago.Trim()};");
+                    sb.Append($"{factura.EstadoActual};");  // Ya se puede acceder a Estado_actual
+                    sb.AppendLine($"{factura.Numero_factura}");
+                }
+            }
+
+            return sb.ToString();
         }
-    }
+
+     
+        public bool GuardarFacturas(string datos)
+        {
+
+            string carpeta = @"../../archivo/";
+            // Filename
+            string archivo = "facturas2.csv";//Se guarda en un archivo nuevo, para probar la creacion del archivo
+            // Fullpath. You can direct hardcode it if you like.
+            string ruta = carpeta + archivo;
+            bool exito = true;
+            // Write array of strings to a file using WriteAllLines.
+            // If the file does not exists, it will create a new file.
+            // This method automatically opens the file, writes to it, and closes file
+            try
+            {
+
+                File.WriteAllText(ruta,datos);
+            }
+            catch(Exception e) {
+                Console.WriteLine("Error al guardar el archivo "+e.ToString());
+                exito = false; 
+            }
+            
+
+            return exito;
+        }
 
     // Método agregado como suposición para la clase Factura, ya que no estaba incluido en el código original
     public class Factura
@@ -91,4 +136,6 @@ namespace Restaurante
             }
         }
     }
+
+}
 }

@@ -80,6 +80,7 @@ namespace sistemarestaurante
                 
                 
             }
+            // Método para configurar el sistema, como el número de mesas y los productos del menú
 
             void Configurar()
             {
@@ -128,7 +129,8 @@ namespace sistemarestaurante
 
             }
             
-            
+                        // Método para registrar un pedido, validando si ya hay mesas disponibles y productos registrados
+
             void RegistrarPedido()
             {
                 if(numeroMesa == null) {

@@ -26,6 +26,8 @@ namespace sistemarestaurante
             Console.Clear();// Limpiar la consola
             Menu(); // Mostrar menú principal
 
+            // Metodo para mostrar saludo principal
+
             void Saludo()
             {
              Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD    OOO ");

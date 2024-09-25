@@ -41,6 +41,8 @@ namespace sistemarestaurante
                 Console.WriteLine("Oprima cualquier tecla para continuar");
                 Console.ReadKey();
             }
+           
+            // Menú principal que permite al usuario navegar por las opciones del sistema
 
             void Menu()
             {

@@ -6,14 +6,14 @@ namespace sistemarestaurante
     {       
         static void Main(string[] args)
         {
-            byte num = 0;
-            byte id = 0;
-            string[,] carta;
-            carta = new string[10, 3];
-            bool mostrar = false;
-            string[,] compramesa = new string[10, 3];
-            Mesa[] numeroMesa = null;
-            Mesa administrarmesa;            
+            byte num = 0; // Número de mesas
+            byte id = 0; // ID de la mesa seleccionada
+            string[,] carta;// Menú de productos
+            carta = new string[10, 3]; // Control para mostrar el menú
+            bool mostrar = false; // Control para mostrar el menú
+            string[,] compramesa = new string[10, 3]; // Productos comprados
+            Mesa[] numeroMesa = null; // Array de mesas
+            Mesa administrarmesa; // Mesa administrada           
             Producto producto;
             producto = new Producto();
             Pedido pedido;
@@ -22,9 +22,10 @@ namespace sistemarestaurante
             Constante constante = new Constante();
 
 
-            Saludo();
-            Console.Clear();
-            Menu();
+            Saludo();// Mostrar saludo inicial
+            Console.Clear();// Limpiar la consola
+            Menu(); // Mostrar menú principal
+
             void Saludo()
             {
              Console.WriteLine("BBBB   IIIII  EEEEE  N   N  V   V  EEEEE  N   N  IIIII  DDDD    OOO ");
@@ -61,7 +62,8 @@ namespace sistemarestaurante
                     {
                         Console.WriteLine("Seleccione una opción del menu");
 
-                    } while (!byte.TryParse(Console.ReadLine(), out opcion));
+                    } while (!byte.TryParse(Console.ReadLine(), out opcion)); // Validar entrada
+
                     switch (opcion)
                     {
                         case 1: Configurar(); confirmar = false; break;

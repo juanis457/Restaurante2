@@ -263,299 +263,242 @@ void ImprimirMesas()
 }
 
             void Carta()
-{
-    // Limpia la consola para una presentación limpia
-    Console.Clear();
-
-    // Muestra el título del menú con una representación artística de la palabra "PRODUCTO"
-    Console.WriteLine("El menú es este con las cantidades de los productos");
-    Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
-    Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
-    Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");
-    Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");
-    Console.WriteLine("P      R   R   OOO   DDDD   UUUU   CCCC    T      OOO ");
-
-    // Verifica si la carta ya ha sido mostrada anteriormente
-    if (mostrar == false)
-    {
-        // Itera sobre las 10 filas de productos
-        for (int i = 0; i < 10; i++)
-        {
-            // Itera sobre las 3 columnas: Nombre, Precio y Cantidad
-            for (int j = 0; j < 3; j++)
             {
-                if (j == 0)
+                Console.Clear();
+                Console.WriteLine("El menú es este con las cantidades de los productos");
+                Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
+                Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("PPPP   RRRR   O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");
+                Console.WriteLine("P      R   R   OOO   DDDD   UUUU   CCCC    T      OOO ");
+
+                if (mostrar == false)
                 {
-                    // Asigna el nombre del producto a la carta
-                    carta[i, j] = producto.Nombre[i];
-                }
-                else if (j == 1)
-                {
-                    // Asigna el precio del producto a la carta
-                    carta[i, j] = producto.Precio[i];
-                }
-                else if (j == 2)
-                {
-                    // Asigna la cantidad del producto a la carta
-                    carta[i, j] = producto.Cantidad[i];
-                }
-                // Muestra el contenido de la carta separado por "|"
-                Console.Write(carta[i, j] + "|");
-            }
-            // Salta a la siguiente línea después de cada fila de productos
-            Console.WriteLine();
-        }
-        // Marca que la carta ya ha sido mostrada para evitar recargarla
-        mostrar = true;
-    }
-    else
-    {
-        // Si la carta ya fue mostrada, simplemente la muestra nuevamente
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                Console.Write(carta[i, j] + "|");
-            }
-            Console.WriteLine();
-        }
-    }
-
-    // Pregunta al usuario si desea cambiar algo de la carta
-    Console.WriteLine("Desea cambiar algo de la carta?");
-    byte confirm;
-
-    // Bucle para asegurar una entrada válida (1 para Sí, 2 para No)
-    do
-    {                    
-        Console.WriteLine("(1)Si    (2)No");                                     
-    } while (!byte.TryParse(Console.ReadLine(), out confirm) || (confirm != 1 && confirm != 2));
-
-    if (confirm == 1)
-    {
-        byte respu;   // Variable para almacenar la fila a editar
-        byte respu2;  // Variable para almacenar la columna a editar
-
-        // Muestra una representación artística de la palabra "EDITAR"
-        Console.WriteLine("E E E E E   D D D D    I I I I  T T T T    A A A   R R R R");
-        Console.WriteLine("E           D       D     I       T       A     A  R      R");
-        Console.WriteLine("E E E       D       D     I       T       A A A A  R R R");
-        Console.WriteLine("E           D       D     I       T       A     A  R   R");
-        Console.WriteLine("E E E E E   D D D D     I I I     T       A     A  R    R");
-
-        // Solicita al usuario la fila que desea editar (validando que esté entre 1 y 10)
-        do
-        {
-            Console.WriteLine("Que fila desea editar?");
-        } while (!byte.TryParse(Console.ReadLine(), out respu) || (respu < 1 || respu > 10)); 
-
-        // Solicita al usuario la columna que desea editar (validando que esté entre 1 y 3)
-        do
-        {
-            Console.WriteLine("Que columna desea editar?");
-        } while (!byte.TryParse(Console.ReadLine(), out respu2) || (respu2 < 1 || respu2 > 3));
-
-        string cambio;       // Variable para almacenar el nuevo valor
-        bool valides = false; // Bandera para validar el cambio
-
-        // Bucle para asegurar que el cambio ingresado sea válido
-        do
-        {
-            Console.WriteLine("Ingrese el cambio que quiere hacerle a la carta");
-            cambio = Console.ReadLine() ?? string.Empty;
-
-            if (respu2 == 1)
-            {
-                // Cambio en la columna de Nombre
-                Console.WriteLine("Registrando cambio 1");
-                carta[respu - 1, respu2 - 1] = cambio;                                                                              
-                valides = true;
-            }
-            else if (respu2 == 2)
-            {
-                // Cambio en la columna de Precio
-                Console.WriteLine("Registrando cambio 2");
-                // Verifica que el nuevo precio sea un número válido y mayor o igual a 1000
-                if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) >= 1))
-                {
-                    carta[respu - 1, respu2 - 1] = cambio;
-                    valides = true;
-                }
-                else 
-                {
-                    Console.WriteLine("Ingrese un opción valida, el valor que ingresaste es demasido bajo para los productos que vendemos");
-                    valides = false;
-                }
-            }
-            else if(respu2 == 3)
-            {
-                // Cambio en la columna de Cantidad
-                Console.WriteLine("Registrando cambio 3");
-                // Verifica que la nueva cantidad sea un número válido y menor a 1000
-                if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) < 1))
-                {
-                    carta[respu - 1, respu2 - 1] = cambio;                                
-                    valides = true;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            if (j == 0)
+                            {
+                                carta[i, j] = producto.Nombre[i];
+                            }
+                            else if (j == 1)
+                            {
+                                carta[i, j] = producto.Precio[i];
+                            }
+                            else if (j == 2)
+                            {
+                                carta[i, j] = producto.Cantidad[i];
+                            }
+                            Console.Write(carta[i, j] + "|");
+                        }
+                        Console.WriteLine();
+                    }
+                    mostrar = true;
                 }
                 else
                 {
-                    Console.WriteLine("Ingrese una opción valida, el valor que ingresaste es demasido alto ó no tenemos tanta cantidad de productos");
-                    valides = false;
-                }
-            }
-            else
-            {
-                // Caso en que la columna ingresada no es válida
-                Console.WriteLine("Ingrese un opción valida");
-                valides = false;
-            }                        
-        } while (valides == false);
-
-        Console.WriteLine("Continuo");
-
-        // Muestra la carta actualizada
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {                            
-                Console.Write(carta[i, j] + "|");
-            }
-            Console.WriteLine();
-        }
-
-        // Espera a que el usuario presione una tecla para continuar
-        Console.WriteLine("Oprima cualquier tecla para continuar");
-        Console.ReadKey();
-
-        // Llama recursivamente al método Carta para mostrar nuevamente el menú actualizado
-        Carta();
-    }
-    else if(confirm == 2)
-    {
-        // Si el usuario no desea editar, procede al método de Compra
-        Compra();
-    }
-}
-
-// Método para gestionar las compras de productos
-void Compra()
-{
-    // Solicita al usuario el nombre del producto que desea comprar
-    Console.WriteLine("Ingrese el nombre del producto que desea comprar");
-    string compra = Console.ReadLine();
-
-    // Itera sobre las 10 filas de la carta para encontrar el producto
-    for (int i = 0; i < 10; i++)
-    {                    
-        // Compara el nombre ingresado con los nombres de los productos (sin diferenciar mayúsculas)
-        if (carta[i,0].ToLower() == compra.ToLower())
-        {                        
-            // Itera nuevamente para verificar si el producto ya está en la mesa de compras
-            for (int j = 0; j < 10; j++)
-            {
-                if(compramesa[j, 0] != null)
-                {                                
-                    if (compramesa[j, 0].ToLower() == compra.ToLower())
+                    for (int i = 0; i < 10; i++)
                     {
-                        Console.WriteLine("Registrando datos...");
-                        int suma;
-                        // Suma 1 a la cantidad existente del producto en el pedido
-                        suma = Convert.ToInt16(compramesa[j, 2]);
-                        suma = suma + 1;
-                        pedido.Pedidos[j, 2] = Convert.ToString(suma);
-                        compramesa[j, 2] = Convert.ToString(suma);
+                        for (int j = 0; j < 3; j++)
+                        {
+                            Console.Write(carta[i, j] + "|");
+                        }
+                        Console.WriteLine();
                     }
+                }               
+                Console.WriteLine("Desea cambiar algo de la carta?");
+                byte confirm;
+                do
+                {                    
+                        Console.WriteLine("(1)Si    (2)No");                                     
+                } while (!byte.TryParse(Console.ReadLine(), out confirm) || (confirm != 1 && confirm != 2));
+                if (confirm == 1)
+                {
+                    byte respu;
+                    byte respu2;
+                    Console.WriteLine("E E E E E   D D D D    I I I I  T T T T    A A A   R R R R"  );
+                    Console.WriteLine("E           D       D     I       T       A     A  R      R" );
+                    Console.WriteLine("E E E       D       D     I       T       A A A A  R R R"    );
+                    Console.WriteLine("E           D       D     I       T       A     A  R   R"    );
+                    Console.WriteLine("E E E E E   D D D D     I I I     T       A     A  R    R"   );
+                    do
+                    {
+                        Console.WriteLine("Que fila desea editar?");
+                        
+                    } while (!byte.TryParse(Console.ReadLine(), out respu) || (respu >= 10 && respu <= 1));                    
+                    do
+                    {
+                        Console.WriteLine("Que columna desea editar?");
+                    } while (!byte.TryParse(Console.ReadLine(), out respu2) || (respu2 >= 3 && respu2 <= 1));
+                    string cambio;
+                    bool valides = false;
+                    do
+                    {
+                        Console.WriteLine("Ingrese el cambio que quiere hacerle a la carta");
+                        cambio = Console.ReadLine() ??string.Empty;
+
+                        if (respu2 == 1)
+                        {
+                            Console.WriteLine("Registrando cambio 1");
+                            carta[respu-1, respu2-1] = cambio;                                                                              
+                            valides = true;
+                        }
+                        else if (respu2 == 2)
+                        {
+                            Console.WriteLine("Registrando cambio 2");
+                            if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) >= 1))
+                            {
+                                carta[respu - 1, respu2 - 1] = cambio;
+                                valides = true;
+                            }
+                            else 
+                            {
+                                Console.WriteLine("Ingrese un opción valida, el valor que ingresaste es demasido bajo para los productos que vendemos");
+                                valides = false;
+                            }
+                        }
+                        else if(respu2 == 3)
+                        {
+                            Console.WriteLine("Registrando cambio 2");
+                            if ((int.TryParse(cambio, out int numeroEntero)) && ((numeroEntero / 1000) < 1))
+                            {
+                                carta[respu-1, respu2-1] = cambio;                                
+                                valides = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ingrese una opción valida, el valor que ingresaste es demasido alto ó no tenemos tanta cantidad de productos");
+                                valides = false;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ingrese un opción valida");
+                            valides = false;
+                        }                        
+                    } while (valides == false);
+                    Console.WriteLine("Continuo");
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {                            
+                            Console.Write(carta[i, j] + "|");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Oprima cualquier tecla para continuar");
+                    Console.ReadKey();
+                    Carta();
+
+
+
+                }
+                else if(confirm == 2)
+                {
+                    Compra();
+                        
+                    
                 }
             }
-
-            bool ingresar = false;   // Bandera para determinar si se debe ingresar el producto
-            bool revision = false;   // Bandera para verificar duplicados
-
-            // Itera para encontrar una posición vacía en la mesa de compras
-            for (int j = 0; j < 10; j++)
+            
+            void Compra()
             {
-                if (compramesa[j, 0] == null && ingresar == false)
-                {                                
-                    for (int k = 0; k < 10; k++)
-                    {                                    
-                        if (compramesa[k, 0] != null && compramesa[k, 0].ToLower() == compra.ToLower())
-                        {                                        
-                            revision = true; // Marca que el producto ya existe en la mesa de compras
-                        }                                    
-                        if (k == 9 && revision == false) 
+                
+                Console.WriteLine("Ingrese el nombre del producto que desea comprar");
+                string compra = Console.ReadLine();
+                for (int i = 0; i < 10; i++)
+                {                    
+                    if (carta[i,0].ToLower() == compra.ToLower())
+                    {                        
+                        for (int j = 0; j < 10; j++)
                         {
-                            // Registra el nuevo producto en la mesa de compras
-                            Console.WriteLine("Registrando datos...");
-                            pedido.Pedidos[j, 0] = compra;
-                            compramesa[j, 0] = compra;                                        
-                            pedido.Pedidos[j, 2] = "1";
-                            compramesa[j, 2] = "1";
-
-                            // Asigna el precio del producto desde la carta al pedido
-                            for(int l  = 0; l < 10; l++)
-                            {
-                                if (carta[l, 0].ToLower() == compra.ToLower())
+                            if(compramesa[j, 0] != null)
+                            {                                
+                                if (compramesa[j, 0].ToLower() == compra.ToLower())
                                 {
-                                    pedido.Pedidos[j, 1] = carta[l,1];
-                                    compramesa[j, 1] = carta[l, 1];
+                                    Console.WriteLine("Registrando datos...");
+                                    int suma;
+                                    suma = Convert.ToInt16(compramesa[j, 2]);
+                                    suma = suma + 1;
+                                    pedido.Pedidos[j, 2] = Convert.ToString(suma);
+                                    compramesa[j, 2] = Convert.ToString(suma);
+
                                 }
                             }
-                            ingresar = true; // Marca que el producto ha sido ingresado
-                        }
-                    }                                
+                        }                        
+                        bool ingresar = false;
+                        bool revision = false;
+                        for (int j = 0; j < 10; j++)
+                        {
+                            
+                            if (compramesa[j, 0] == null && ingresar == false)
+                            {                                
+                                for (int k = 0; k < 10; k++)
+                                {                                    
+                                    if (compramesa[k, 0] != null && compramesa[k, 0].ToLower() == compra.ToLower())
+                                    {                                        
+                                        revision = true;
+                                    }                                    
+                                    if (k == 9 && revision == false) 
+                                    {
+                                        Console.WriteLine("Registrando datos...");
+                                        pedido.Pedidos[j, 0] = compra;
+                                        compramesa[j, 0] = compra;                                        
+                                        pedido.Pedidos[j, 2] = "1";
+                                        compramesa[j, 2] = "1";
+                                        for(int l  = 0; l < 10; l++)
+                                        {
+                                            if (carta[l, 0].ToLower() == compra.ToLower())
+                                            {
+                                                pedido.Pedidos[j, 1] = carta[l,1];
+                                                compramesa[j, 1] = carta[l, 1];
+                                            }
+                                        }
+                                        ingresar = true;
+                                    }
+                                }                                
+                            }
+                        }                        
+                    }                    
                 }
-            }                        
-        }                    
-    }
+                byte confirm2;
+                Console.WriteLine("Quieres seguir comprando?");
+                do
+                {
+                    Console.WriteLine("(1)Si    (2)No");
+                } while (!byte.TryParse(Console.ReadLine(), out confirm2) || (confirm2 != 1 && confirm2 != 2));
+                if (confirm2 == 1)
+                {
+                    Compra();
+                }
+                else if (confirm2 == 2)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Estos son los productos que han pedido");
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0;j < 3; j++)
+                        {
+                            Console.Write(pedido.Pedidos[i,j] + "|");
+                        }
+                        Console.WriteLine();
+                    }
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            Console.Write(compramesa[i, j] + "|");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Oprime una tecla para continuar");
+                    Console.ReadKey();
+                    Menu();
+                }
 
-    byte confirm2;
-
-    // Pregunta al usuario si desea seguir comprando
-    Console.WriteLine("Quieres seguir comprando?");
-    do
-    {
-        Console.WriteLine("(1)Si    (2)No");
-    } while (!byte.TryParse(Console.ReadLine(), out confirm2) || (confirm2 != 1 && confirm2 != 2));
-
-    if (confirm2 == 1)
-    {
-        // Si el usuario desea seguir comprando, llama recursivamente al método Compra
-        Compra();
-    }
-    else if (confirm2 == 2)
-    {
-        // Si el usuario no desea seguir comprando, muestra los productos pedidos
-        Console.Clear();
-        Console.WriteLine("Estos son los productos que han pedido");
-
-        // Muestra los pedidos desde la matriz 'pedido.Pedidos'
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0;j < 3; j++)
-            {
-                Console.Write(pedido.Pedidos[i,j] + "|");
             }
-            Console.WriteLine();
-        }
-
-        // Muestra los pedidos desde la matriz 'compramesa'
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                Console.Write(compramesa[i, j] + "|");
-            }
-            Console.WriteLine();
-        }
-
-        // Espera a que el usuario presione una tecla para continuar
-        Console.WriteLine("Oprime una tecla para continuar");
-        Console.ReadKey();
-
-        // Llama al método principal del menú (asumiendo que existe)
-        Menu();
-    }
-}
+            
 
         }
 

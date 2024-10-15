@@ -1,5 +1,8 @@
 using System;
 
+using System.IO;
+using System;
+
 namespace sistemarestaurante
 {
     // Clase Inventario que maneja los productos del restaurante
@@ -12,6 +15,61 @@ namespace sistemarestaurante
         public Inventario()
         {
             productos = new Producto(); // Inicializamos la instancia de Producto al crear un inventario
+            CargarInventarioDesdeArchivo(); // Carga el inventario automáticamente al iniciar
+        }
+
+        // Método para cargar el inventario desde un archivo CSV
+        public void CargarInventarioDesdeArchivo()
+        {
+            try
+            {
+                // Leer todas las líneas del archivo CSV
+                string[] lineas = File.ReadAllLines(@"../../archivo/inventario.csv");
+
+                // Procesar las líneas para llenar el inventario
+                productos.Nombre = new string[lineas.Length];
+                productos.Precio = new string[lineas.Length];
+                productos.Cantidad = new string[lineas.Length];
+
+                for (int i = 0; i < lineas.Length; i++)
+                {
+                    string[] datosProducto = lineas[i].Split(',');
+                    productos.Nombre[i] = datosProducto[0];
+                    productos.Precio[i] = datosProducto[1];
+                    productos.Cantidad[i] = datosProducto[2];
+                }
+
+                Console.WriteLine("Inventario cargado exitosamente.");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("El archivo de inventario no se encontró.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cargar el inventario: " + ex.Message);
+            }
+        }
+
+        // Método para guardar el inventario en el archivo CSV
+        public void GuardarInventarioEnArchivo()
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(@"../../archivo/inventario.csv"))
+                {
+                    for (int i = 0; i < productos.Nombre.Length; i++)
+                    {
+                        string linea = $"{productos.Nombre[i]},{productos.Precio[i]},{productos.Cantidad[i]}";
+                        sw.WriteLine(linea);
+                    }
+                }
+                Console.WriteLine("Inventario guardado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al guardar el inventario: " + ex.Message);
+            }
         }
 
         // Método para mostrar todos los productos en el inventario
@@ -25,60 +83,29 @@ namespace sistemarestaurante
             }
         }
 
-        // Método para agregar o actualizar un producto en el inventario
-        // Si el producto ya existe, se actualiza su precio y cantidad
-        public void AgregarProducto(string nombre, string precio, string cantidad)
+        // Método para actualizar el inventario después de una venta
+        public void ActualizarInventario(string nombre, int cantidadVendida)
         {
-            // Busca el índice del producto en el arreglo por su nombre
             int index = Array.IndexOf(productos.Nombre, nombre);
-
-            if (index != -1) // Si el producto existe en el inventario
+            if (index != -1)
             {
-                productos.Precio[index] = precio; // Actualiza el precio del producto
-                productos.Cantidad[index] = cantidad; // Actualiza la cantidad del producto
+                int cantidadActual = int.Parse(productos.Cantidad[index]);
+                if (cantidadActual >= cantidadVendida)
+                {
+                    productos.Cantidad[index] = (cantidadActual - cantidadVendida).ToString();
+                    Console.WriteLine($"Se actualizó la cantidad de {nombre} a {productos.Cantidad[index]}.");
+                }
+                else
+                {
+                    Console.WriteLine("No hay suficiente cantidad en el inventario para esta venta.");
+                }
             }
             else
             {
-                // Muestra un mensaje si el producto no existe en el inventario
                 Console.WriteLine($"El producto {nombre} no existe en el inventario.");
             }
         }
 
-        // Método para buscar un producto en el inventario por su nombre
-        public void BuscarProducto(string nombre)
-        {
-            // Busca el índice del producto en el arreglo por su nombre
-            int index = Array.IndexOf(productos.Nombre, nombre);
-
-            if (index != -1) // Si el producto existe
-            {
-                // Muestra el producto encontrado con su nombre, precio y cantidad
-                Console.WriteLine($"Producto encontrado: {productos.Nombre[index]} - Precio: {productos.Precio[index]} - Cantidad: {productos.Cantidad[index]}");
-            }
-            else
-            {
-                // Muestra un mensaje si el producto no existe en el inventario
-                Console.WriteLine($"El producto {nombre} no existe en el inventario.");
-            }
-        }
-
-        // Método para actualizar la cantidad de un producto en el inventario
-        public void ActualizarCantidad(string nombre, string nuevaCantidad)
-        {
-            // Busca el índice del producto en el arreglo por su nombre
-            int index = Array.IndexOf(productos.Nombre, nombre);
-
-            if (index != -1) // Si el producto existe
-            {
-                // Actualiza la cantidad del producto
-                productos.Cantidad[index] = nuevaCantidad;
-                Console.WriteLine($"Cantidad actualizada para {nombre}: {nuevaCantidad}");
-            }
-            else
-            {
-                // Muestra un mensaje si el producto no existe en el inventario
-                Console.WriteLine($"El producto {nombre} no existe en el inventario.");
-            }
-        }
+        // Otros métodos de la clase...
     }
 }

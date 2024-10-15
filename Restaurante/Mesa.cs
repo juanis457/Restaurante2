@@ -39,7 +39,7 @@ namespace sistemarestaurante
             Console.WriteLine($"Número de mesas disponibles: {Mesasdispo}");
             
             // Muestra el número de la mesa que está siendo atendida
-            Console.WriteLine($"Número de mesa seleccionada: {Mesaatendida}");
+            Console.WriteLine($"Número de mesa seleccionada: {Mesaatendida}"); //! REVISAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
 }

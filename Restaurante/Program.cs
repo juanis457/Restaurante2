@@ -261,10 +261,11 @@ void ImprimirMesas()
         }
     } while (confirmar); // Repite el ciclo mientras confirmar sea verdadero
 }
-
+//metodo para mostrar y gestionar la carta de productos
             void Carta()
             {
-                Console.Clear();
+                Console.Clear(); //limpia la consola para una presentacion limpia
+                //Muestra el titulo del menú con una presentacion de ASCII
                 Console.WriteLine("El menú es este con las cantidades de los productos");
                 Console.WriteLine("PPPP   RRRR    OOO    DDDD   U  U   CCCC   TTTTT  OOO ");
                 Console.WriteLine("P   P  R   R  O   O  D   D  U   U  C       T     O   O");
@@ -272,25 +273,31 @@ void ImprimirMesas()
                 Console.WriteLine("P      R  R   O   O  D   D  U   U  C       T     O   O");
                 Console.WriteLine("P      R   R   OOO   DDDD   UUUU   CCCC    T      OOO ");
 
+//verifica si la carta ya ha sido mostrada anteriormente
                 if (mostrar == false)
                 {
+                    //Itera sobre las diez filas de productos
                     for (int i = 0; i < 10; i++)
                     {
+                        //Itera sobre las 3 columnas: Nombre, precio y cantidad
                         for (int j = 0; j < 3; j++)
                         {
                             if (j == 0)
                             {
+                                //asigna el nombre del producto a la carta
                                 carta[i, j] = producto.Nombre[i];
                             }
                             else if (j == 1)
                             {
+                                 //asigna el precio del producto a la carta
                                 carta[i, j] = producto.Precio[i];
                             }
                             else if (j == 2)
                             {
+                                 //asigna la cantidad del producto a la carta
                                 carta[i, j] = producto.Cantidad[i];
                             }
-                            Console.Write(carta[i, j] + "|");
+                            //muestra el contenido de la carta separado por |                            Console.Write(carta[i, j] + "|");
                         }
                         Console.WriteLine();
                     }

@@ -115,7 +115,7 @@ void Menu()
         switch (opcion)
         {
             case 1: Configurar(); confirmar = false; break; // Configura el programa
-            case 2: RegistrarPedido(); confirmar = false; break; // Registra pedido y factura
+            case 2: RegistrarPedido(); Console.Clear(); confirmar = false; break; // Registra pedido y factura
             case 3: confirmar = false; break; // Salir del menú
             default:
                 // Si la opción no es válida, muestra un mensaje y espera una tecla antes de limpiar la pantalla
@@ -510,7 +510,8 @@ void ImprimirMesas()
                     }                    
                 }
                 byte confirm2;
-                Console.WriteLine("Quieres seguir comprando?");
+                Console.Clear();
+Console.WriteLine("Quieres seguir comprando?");
                 do
                 {
                     Console.WriteLine("(1)Si    (2)No");
@@ -539,7 +540,8 @@ void ImprimirMesas()
                         }
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Oprime una tecla para continuar");
+                    Console.Clear();
+Console.WriteLine("Oprime una tecla para continuar");
                     Console.ReadKey();
                     Menu();
                 }

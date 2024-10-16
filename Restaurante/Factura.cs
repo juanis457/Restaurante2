@@ -8,6 +8,7 @@ namespace sistemarestaurante
 {
     internal class Factura
     {
+        
         // Atributos privados de la clase Factura
         private string fecha;  // Almacena la fecha de la factura      
         private string medio_pago;  // Almacena el medio de pago (efectivo, tarjeta, etc.)
@@ -31,8 +32,32 @@ namespace sistemarestaurante
             this.numero_factura = numero_factura;
             this.mesa = mesa;
             this.pedido = pedido;
+            Productos = new List<Producto>();
             
         }
+       
+
+     
+
+
+    // Método para agregar productos a la factura, se le añade parámetro para aplicar descuento
+    public void AgregarProductos(string[] nombres, string[] precios, bool aplicarDescuento = false)
+    {
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            float precio = float.Parse(precios[i]);
+            if (aplicarDescuento)
+            {
+                // Aplicar un 10% de descuento como ejemplo
+                precio = precio * 0.9f;
+            }
+            
+            Producto producto = new Producto(nombres[i], precio);
+            Productos.Add(producto);
+            
+            Console.WriteLine($"Producto: {nombres[i]}, Precio: {precio}");
+        }
+    }
 
         // Propiedades públicas para acceder y modificar los atributos privados
         public string Fecha { get => fecha; set => fecha = value; }

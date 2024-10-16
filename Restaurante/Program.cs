@@ -6,6 +6,46 @@ namespace sistemarestaurante
     {       
         static void Main(string[] args)
         {
+            Inventario inventario = new Inventario();
+
+            bool continuar = true;
+            while (continuar)
+            {
+                Console.WriteLine("----- Menú del Restaurante -----");
+                Console.WriteLine("1. Mostrar Inventario");
+                Console.WriteLine("2. Guardar Inventario");
+                Console.WriteLine("3. Vender Producto");
+                Console.WriteLine("4. Salir");
+                Console.Write("Seleccione una opción: ");
+
+                int opcion = int.Parse(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        inventario.MostrarInventario();
+                        break;
+                    case 2:
+                        inventario.GuardarInventarioEnArchivo();
+                        break;
+                    case 3:
+                        Console.Write("Ingrese el nombre del producto que se vendió: ");
+                        string nombreProducto = Console.ReadLine();
+                        Console.Write("Ingrese la cantidad vendida: ");
+                        int cantidadVendida = int.Parse(Console.ReadLine());
+
+                        inventario.ActualizarInventario(nombreProducto, cantidadVendida);
+                        break;
+                    case 4:
+                        continuar = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Intente nuevamente.");
+                        break;
+                }
+            }
+
+            Console.WriteLine("Gracias por usar el sistema del restaurante.");
             byte num = 0; // Número de mesas
             byte id = 0; // ID de la mesa seleccionada
             string[,] carta;// Menú de productos

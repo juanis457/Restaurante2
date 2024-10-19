@@ -55,10 +55,10 @@ namespace sistemarestaurante
                         string[] infoFactura = datos[i].Split(';');
                         Factura factura = new Factura
                         {
-                            Fecha = infoFactura[0],
-                            Medio_pago = infoFactura[1],
-                            EstadoActual = int.Parse(infoFactura[2]),
-                            Numero_factura = int.Parse(infoFactura[3])
+                            fecha = infoFactura[0],
+                            medio_pago = infoFactura[1],
+                            estadoActual = int.Parse(infoFactura[2]),
+                            numero_factura = int.Parse(infoFactura[3])
                         };
                         cliente.AgregarFactura(factura);
                     }

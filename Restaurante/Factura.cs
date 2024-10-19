@@ -10,14 +10,16 @@ namespace sistemarestaurante
     {
         
         // Atributos privados de la clase Factura
-        private string fecha;  // Almacena la fecha de la factura      
-        private string medio_pago;  // Almacena el medio de pago (efectivo, tarjeta, etc.)
+        private string fecha { get; set; } // Almacena la fecha de la factura      
+        private string medio_pago { get; set; } // Almacena el medio de pago (efectivo, tarjeta, etc.)
         private float iva = Constante.IMPUESTO;  // IVA, que se inicializa con un valor constante
         private float total;  // Total de la factura antes de impuestos           
-        private int numero_factura;  // Número de la factura
+        private int numero_factura { get; set; }  // Número de la factura
         private int mesa;  // Número de la mesa en el restaurante
         private string[,] pedido;  // Arreglo bidimensional que almacena detalles de los pedidos (nombre, cantidad, precio)
 
+        public int estadoActual { get; set; }
+        private List<Producto> Productos = new List<Producto>(); 
         private string[] precio;  // Atributo para almacenar los precios individuales
         
         // Arreglo que almacenará la factura final con todos los datos organizados (17 filas, 3 columnas)
@@ -32,8 +34,8 @@ namespace sistemarestaurante
             this.numero_factura = numero_factura;
             this.mesa = mesa;
             this.pedido = pedido;
-            Productos = new List<Producto>();
             
+            /*List<Producto> Productos = new List<Producto>(); */
         }
        
 

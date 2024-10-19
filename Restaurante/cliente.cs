@@ -11,6 +11,9 @@ namespace sistemarestaurante
         public string Nombre { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public List<Factura> HistorialFacturas { get; set; }
+        public Factura []Facturas;
+
+        public Estado EstadoFactura;
 
         // Constructor de la clase Cliente
         public Cliente(string nombre, DateTime fechaNacimiento)
@@ -92,12 +95,12 @@ namespace sistemarestaurante
         }
         public decimal ObtenerTotalDeuda()
     {
-        return Facturas.Where(f => f.EstadoActual == (int)EstadoFactura.Pendiente).Sum(f => f.CalcularTotal() - f.MontoPagado);
+        return Facturas.Where(f => f.estadoActual == (int)EstadoFactura.Pendiente).Sum(f => f.CalcularTotal() - f.MontoPagado);
     }
 
     public bool AbonarCuenta(int numeroFactura, decimal monto)
     {
-        var factura = Facturas.FirstOrDefault(f => f.Numero_factura == numeroFactura && f.EstadoActual == (int)EstadoFactura.Pendiente);
+        var factura = Facturas.FirstOrDefault(f => f.Numero_factura == numeroFactura && f.estadoActual == (int)EstadoFactura.Pendiente);
         if (factura != null)
         {
             if (monto <= ObtenerTotalDeuda() && monto <= LimiteCredito)

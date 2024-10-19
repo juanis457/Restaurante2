@@ -6,15 +6,15 @@ using System;
 namespace sistemarestaurante
 {
     // Clase Inventario que maneja los productos del restaurante
-    internal class Inventario
+    public class Inventario
     {
         // Atributo privado que representa una instancia de la clase Producto
-        private Producto productos;
+        public Producto productos;
 
         // Constructor de la clase Inventario
         public Inventario()
         {
-            productos = new Producto(); // Inicializamos la instancia de Producto al crear un inventario
+            Producto[] productos = new Producto[0]; // Inicializamos la instancia de Producto al crear un inventario
             CargarInventarioDesdeArchivo(); // Carga el inventario automáticamente al iniciar
         }
 

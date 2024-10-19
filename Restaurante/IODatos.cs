@@ -7,8 +7,9 @@ namespace Restaurante
 {
     public class IODatos
     {
+        
         // Constante para organizar los CSV por comas
-        public const char ORGANIZAR_CSV = ',';
+        public const char SEPARADOR_CSV = ',';
 
         // Método para cargar facturas desde un archivo CSV
         public Factura[] CargarFacturasCSV()
@@ -20,7 +21,7 @@ namespace Restaurante
                 // Leemos todas las líneas del archivo CSV
                 string[] lineas = File.ReadAllLines(@"../../archivo/facturas.csv");
                 Console.WriteLine("Estamos cargando facturas desde CSV");
-                
+
                 // Si el archivo no tiene líneas, lanzamos una excepción
                 if (lineas.Length == 0)
                 {
@@ -52,7 +53,7 @@ namespace Restaurante
 
             for (int i = 1; i < lineas.Length; i++) // Comenzamos en 1 para saltar el encabezado
             {
-                string[] temp = lineas[i].Split(ORGANIZAR_CSV); // Dividimos la línea en columnas
+                string[] temp = lineas[i].Split(SEPARADOR_CSV); // Dividimos la línea en columnas
 
                 Factura factura = new Factura(); // Creamos una nueva factura
 
@@ -71,7 +72,7 @@ namespace Restaurante
             }
 
             return facturas;
-           }
+        }
                 public string FormatearLineasFacturas(Factura[] facturas)
             {
                 StringBuilder sb = new StringBuilder();
@@ -116,7 +117,7 @@ namespace Restaurante
             
 
             return exito;
-        }
+    }
 
     // Método agregado como suposición para la clase Factura, ya que no estaba incluido en el código original
     public class Factura
@@ -135,7 +136,44 @@ namespace Restaurante
                 Console.WriteLine($"Producto: {nombres[i]}, Precio: {precios[i]}");
             }
         }
+
+        public string FormatearLineasFacturas(Factura[] facturas)
+{
+    StringBuilder sb = new StringBuilder();
+    sb.Append("FECHA;NOMBRE PRODUCTOS;PRECIO;MEDIO DE PAGO;ESTADO ACTUAL;NUMERO FACTURA\n");
+
+    foreach (var factura in facturas)
+    {
+        if (factura != null)
+        {
+            sb.Append($"{factura.Fecha};");
+            sb.Append($"{factura.Medio_pago.Trim()};");
+            sb.Append($"{factura.EstadoActual};");  // Ya se puede acceder a Estado_actual
+            sb.AppendLine($"{factura.Numero_factura}");
+        }
+    }
+            return sb.ToString();
+}
+    
+
+
+        // Asegúrate de definir estos métodos si aún no lo has hecho
+        public string formatearProductos()
+        {
+            // Lógica para formatear productos
+            return ""; // Implementa según tus necesidades
+        }
+
+        public string formatearPrecios()
+        {
+            // Lógica para formatear precios
+            return ""; // Implementa según tus necesidades
+        }
     }
 
+    }
 }
-}
+
+
+
+

@@ -22,7 +22,7 @@ namespace sistemarestaurante
             Console.Clear();
             InterfazUsuario.ImprimirTitulo("Estado Actual del Inventario");
             
-            foreach (var producto in inventario.Productos)
+            foreach (var producto in inventario.productos)
             {
                 Console.WriteLine($"Producto: {producto.Nombre,-15} | Cantidad: {producto.Cantidad,-5} | Precio: {producto.Precio,6:C}");
             }

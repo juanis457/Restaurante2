@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
-    internal class Mesa
+    public class Mesa
     {
         // Variables privadas para almacenar la información de las mesas
         private int mesasdisponibles; // Almacena la cantidad de mesas disponibles en el restaurante

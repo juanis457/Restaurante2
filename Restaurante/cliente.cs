@@ -90,5 +90,27 @@ namespace sistemarestaurante
                 }
             }
         }
+        public decimal ObtenerTotalDeuda()
+    {
+        return Facturas.Where(f => f.EstadoActual == (int)EstadoFactura.Pendiente).Sum(f => f.CalcularTotal() - f.MontoPagado);
+    }
+
+    public bool AbonarCuenta(int numeroFactura, decimal monto)
+    {
+        var factura = Facturas.FirstOrDefault(f => f.Numero_factura == numeroFactura && f.EstadoActual == (int)EstadoFactura.Pendiente);
+        if (factura != null)
+        {
+            if (monto <= ObtenerTotalDeuda() && monto <= LimiteCredito)
+            {
+                factura.PagarParcialmente(monto);
+                if (factura.CalcularTotal() - factura.MontoPagado <= 0)
+                {
+                    factura.EstadoActual = (int)EstadoFactura.Pagada;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
     }
 }

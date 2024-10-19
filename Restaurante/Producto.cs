@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace sistemarestaurante
 {
     // Clase Producto que almacena información de diferentes productos disponibles en el restaurante
-    internal class Producto
+    public class Producto
     {
         // Arreglo unidimensional 'precio' que almacena el precio de 12 productos diferentes.
         private string[] precio = new string[12] 
@@ -30,6 +30,12 @@ namespace sistemarestaurante
             "Gaseosa", "Jugo natural", "Helado", "Pizza", "Bandeja paisa", "Langostinos" 
         };
 
+        public Producto(string v, float precio1)
+        {
+            V = v;
+            Precio1 = precio1;
+        }
+
         // Propiedad pública para acceder y modificar el arreglo 'precio'.
         public string[] Precio 
         { 
@@ -50,5 +56,7 @@ namespace sistemarestaurante
             get => nombre; 
             set => nombre = value; 
         }
+        public string V { get; }
+        public float Precio1 { get; }
     }
 }

@@ -9,6 +9,8 @@ namespace sistemarestaurante
         private Inventario inventario;
         private List<Mesa> mesas;
 
+        public InterfazUsuario InterfazUsuario;
+
         // Constructor para inicializar el estado con el inventario y las mesas
         public Estado(Inventario inventario, List<Mesa> mesas)
         {
@@ -20,7 +22,7 @@ namespace sistemarestaurante
         public void ImprimirEstadoInventario()
         {
             Console.Clear();
-            InterfazUsuario.ImprimirTitulo("Estado Actual del Inventario");
+            //InterfazUsuario.ImprimirTitulo("Estado Actual del Inventario");
             
             foreach (var producto in inventario.productos)
             {

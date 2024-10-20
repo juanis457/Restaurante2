@@ -34,7 +34,8 @@ namespace sistemarestaurante
                     ? producto.Nombre.Substring(0, Constante.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO) 
                     : producto.Nombre;
 
-                float totalProducto = producto.Cantidad * producto.Precio;
+                float totalProducto = decimal.Parse(producto.Cantidad) * decimal.Parse(producto.Precio);
+                
                 subtotal += totalProducto;
 
                 tirilla.AppendLine($"{nombre,-15} {producto.Cantidad,8} {producto.Precio,10:C} {totalProducto,10:C}");

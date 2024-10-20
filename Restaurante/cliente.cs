@@ -62,7 +62,7 @@ namespace sistemarestaurante
                         {
                             fecha = infoFactura[0],
                             medio_pago = infoFactura[1],
-                            estadoActual = int.Parse(infoFactura[2]),
+                            estadoActual = (infoFactura[2]),
                             numero_factura = int.Parse(infoFactura[3])
                         };
                         cliente.AgregarFactura(factura);
@@ -110,7 +110,7 @@ namespace sistemarestaurante
                 factura.PagarParcialmente(monto);
                 if (factura.CalcularTotal() - factura.MontoPagado <= 0)
                 {
-                    factura.EstadoActual = EstadoFactura.Pagada;
+                    factura.estadoActual = EstadoFactura.Pagada;
                 }
                 return true;
             }

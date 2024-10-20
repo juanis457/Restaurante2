@@ -6,57 +6,26 @@ using System.Threading.Tasks;
 
 namespace sistemarestaurante
 {
+
     // Clase Producto que almacena información de diferentes productos disponibles en el restaurante
     public class Producto
     {
         // Arreglo unidimensional 'precio' que almacena el precio de 12 productos diferentes.
-        private string[] precio = new string[12] 
-        { 
-            "10000", "20000", "5000", "20000", "7000", "10000", "2000", 
-            "5000", "3000", "8000", "20000", "25000" 
-        };
 
-        // Arreglo unidimensional 'cantidad' que almacena la cantidad disponible de cada uno de los 12 productos.
-        private string[] cantidad = new string[12] 
-        { 
-            "10", "10", "20", "29", "16", "14", "7", 
-            "33", "22", "60", "30", "10" 
-        };
 
-        // Arreglo unidimensional 'nombre' que almacena los nombres de 12 productos del restaurante.
-        private string[] nombre = new string[12] 
-        { 
-            "Sushi", "Ramen", "Filete", "Pollo", "Papas Francesas", "Ensalada Cesar", 
-            "Gaseosa", "Jugo natural", "Helado", "Pizza", "Bandeja paisa", "Langostinos" 
-        };
+    public string Nombre;
+    public float Precio { get; set; }
+    public int Cantidad { get; set; }
 
-        public Producto(string v, float precio1)
+
+        public Producto(string nombre, float precio, int cantidad)
         {
-            V = v;
-            Precio1 = precio1;
+            Nombre = nombre;
+            Precio = precio;
+            Cantidad = cantidad;
         }
 
-        // Propiedad pública para acceder y modificar el arreglo 'precio'.
-        public string[] Precio 
-        { 
-            get => precio; 
-            set => precio = value; 
-        }
-
-        // Propiedad pública para acceder y modificar el arreglo 'cantidad'.
-        public string[] Cantidad 
-        { 
-            get => cantidad; 
-            set => cantidad = value; 
-        }
-
-        // Propiedad pública para acceder y modificar el arreglo 'nombre'.
-        public string[] Nombre 
-        { 
-            get => nombre; 
-            set => nombre = value; 
-        }
-        public string V { get; }
-        public float Precio1 { get; }
+        
+        
     }
 }

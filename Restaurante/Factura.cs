@@ -18,15 +18,20 @@ namespace sistemarestaurante
         private int mesa;  // Número de la mesa en el restaurante
         private string[,] pedido;  // Arreglo bidimensional que almacena detalles de los pedidos (nombre, cantidad, precio)
 
-        public int estadoActual { get; set; }
+        public EstadoFactura estadoActual { get; set; }
         private List<Producto> Productos = new List<Producto>(); 
         private string[] precio;  // Atributo para almacenar los precios individuales
         
         // Arreglo que almacenará la factura final con todos los datos organizados (17 filas, 3 columnas)
         string[,] factura = new string[17, 3]; 
 
+        public decimal MontoPagado;
+        public int Subtotal;
+        public int Impuestos;
+        public int Descuento;
+
         // Constructor que inicializa los atributos de la clase con los parámetros recibidos
-        public Factura(string fecha, string medio_pago, float total, int numero_factura, int mesa, string[,] pedido, string[] precios)
+        public Factura(string fecha, string medio_pago, float total, int numero_factura, int mesa, string[,] pedido, string[] precios, int estadoActual)
         {
             this.fecha = fecha;
             this.medio_pago = medio_pago;            
@@ -152,6 +157,18 @@ namespace sistemarestaurante
                 }
                 Console.WriteLine();  // Salta a la siguiente línea
             }
+        }
+        public void PagarParcialmente(decimal monto)
+        {
+
+        MontoPagado = monto + MontoPagado;
+
+        }
+
+        public decimal CalcularTotal()
+        {
+
+        return Subtotal + Impuestos - Descuento;
         }
     }
 }

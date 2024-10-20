@@ -13,7 +13,9 @@ namespace sistemarestaurante
         public List<Factura> HistorialFacturas { get; set; }
         public Factura []Facturas;
 
-        public Estado EstadoFactura;
+        public EstadoFactura EstadoFactura;
+
+        public int LimiteCredito= 1000000;
 
         // Constructor de la clase Cliente
         public Cliente(string nombre, DateTime fechaNacimiento)
@@ -95,12 +97,12 @@ namespace sistemarestaurante
         }
         public decimal ObtenerTotalDeuda()
     {
-        return Facturas.Where(f => f.estadoActual == (int)EstadoFactura.Pendiente).Sum(f => f.CalcularTotal() - f.MontoPagado);
+        return Facturas.Where(f => f.estadoActual == EstadoFactura.Pendiente).Sum(f => f.CalcularTotal() - f.MontoPagado);
     }
 
     public bool AbonarCuenta(int numeroFactura, decimal monto)
     {
-        var factura = Facturas.FirstOrDefault(f => f.Numero_factura == numeroFactura && f.estadoActual == (int)EstadoFactura.Pendiente);
+        var factura = Facturas.FirstOrDefault(f => f.Numero_factura == numeroFactura && f.estadoActual == EstadoFactura.Pendiente);
         if (factura != null)
         {
             if (monto <= ObtenerTotalDeuda() && monto <= LimiteCredito)
@@ -108,7 +110,7 @@ namespace sistemarestaurante
                 factura.PagarParcialmente(monto);
                 if (factura.CalcularTotal() - factura.MontoPagado <= 0)
                 {
-                    factura.EstadoActual = (int)EstadoFactura.Pagada;
+                    factura.EstadoActual = EstadoFactura.Pagada;
                 }
                 return true;
             }
@@ -116,4 +118,10 @@ namespace sistemarestaurante
         return false;
     }
     }
+    public enum EstadoFactura
+{
+    Pendiente = 1,
+    Pagada = 2,
+    Cancelada = 3
+}
 }

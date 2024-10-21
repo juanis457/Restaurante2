@@ -11,11 +11,13 @@ namespace sistemarestaurante
         private const float PORCENTAJE_PROPINA = 0.1f; // 10% de propina sugerida
         private const float DESCUENTO_CUMPLEANOS = 0.1f; // 10% de descuento por cumpleaños
 
+        private float totalProducto;
+
         // Método para generar e imprimir la tirilla de una mesa
         public void ImprimirTirilla(Factura factura, bool esCumpleanosCliente, float montoPagado)
         {
             StringBuilder tirilla = new StringBuilder();
-            
+
             // Encabezado de la tirilla
             tirilla.AppendLine("================================");
             tirilla.AppendLine($"     {Constante.NOMBRE_NEGOCIO}");
@@ -24,23 +26,18 @@ namespace sistemarestaurante
             tirilla.AppendLine("================================");
             tirilla.AppendLine("Producto       Cantidad  Precio U.  Total");
             tirilla.AppendLine("--------------------------------");
-
             float subtotal = 0f;
 
             // Detalle de los productos en la tirilla
             foreach (var producto in factura.Productos)
             {
-                string nombre = producto.Nombre.Length > Constante.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO 
-                    ? producto.Nombre.Substring(0, Constante.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO) 
+                string nombre = producto.Nombre.Length > Constante.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO
+                    ? producto.Nombre.Substring(0, Constante.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO)
                     : producto.Nombre;
-
-                float totalProducto = decimal.Parse(producto.Cantidad) * decimal.Parse(producto.Precio);
-                
+                totalProducto = (float)producto.Cantidad * (float)producto.Precio;
                 subtotal += totalProducto;
-
                 tirilla.AppendLine($"{nombre,-15} {producto.Cantidad,8} {producto.Precio,10:C} {totalProducto,10:C}");
             }
-
             // Calcular descuentos e impuestos
             float descuento = esCumpleanosCliente ? subtotal * DESCUENTO_CUMPLEANOS : 0;
             float impuestos = subtotal * Constante.IMPUESTO;

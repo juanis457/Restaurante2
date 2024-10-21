@@ -55,7 +55,7 @@ namespace sistemarestaurante
             Mesa[] numeroMesa = null; // Array de mesas
             Mesa administrarmesa; // Mesa administrada           
             Producto producto;
-            producto = new Producto();
+            producto = new Producto(string.Empty,0,0);
             Pedido pedido;
             pedido = new Pedido();
             Factura factura;
@@ -259,7 +259,7 @@ void RegistrarPedido()
     }
 
     // Crea un objeto Factura y organiza los datos, luego genera la factura
-    factura = new Factura(fecha, mediopago, total, numfactura, id, pedido.Pedidos, precio);
+    factura = new Factura(fecha, mediopago, total, numfactura, id, pedido.Pedidos, precio, EstadoFactura.Pendiente );
     factura.Organizardatos();
     factura.GenerarFactura();
 
@@ -325,17 +325,17 @@ void ImprimirMesas()
                             if (j == 0)
                             {
                                 //asigna el nombre del producto a la carta
-                                carta[i, j] = producto.Nombre[i];
+                                carta[i, j] = producto.Nombre;
                             }
                             else if (j == 1)
                             {
                                  //asigna el precio del producto a la carta
-                                carta[i, j] = producto.Precio[i];
+                                carta[i, j] = producto.Precio.ToString();
                             }
                             else if (j == 2)
                             {
                                  //asigna la cantidad del producto a la carta
-                                carta[i, j] = producto.Cantidad[i];
+                                carta[i, j] = producto.Cantidad.ToString();
                             }
                             //muestra el contenido de la carta separado por |                            Console.Write(carta[i, j] + "|");
                         }

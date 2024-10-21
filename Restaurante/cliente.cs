@@ -58,13 +58,20 @@ namespace sistemarestaurante
                     for (int i = 2; i < datos.Length; i++)
                     {
                         string[] infoFactura = datos[i].Split(';');
+                        Enum.TryParse(infoFactura[2], out EstadoFactura estado);
                         Factura factura = new Factura
-                        {
-                            fecha = infoFactura[0],
-                            medio_pago = infoFactura[1],
-                            estadoActual = (infoFactura[2]),
-                            numero_factura = int.Parse(infoFactura[3])
-                        };
+                        (
+                            infoFactura[0],
+                            infoFactura[1],
+                            0,
+                            int.Parse(infoFactura[3]),
+                            0,
+                            null,
+                            null,
+                            estado
+                            
+
+                        );
                         cliente.AgregarFactura(factura);
                     }
 
@@ -120,8 +127,8 @@ namespace sistemarestaurante
     }
     public enum EstadoFactura
 {
-    Pendiente = 1,
-    Pagada = 2,
-    Cancelada = 3
+    Pendiente,
+    Pagada,
+    Cancelada
 }
 }

@@ -30,8 +30,10 @@ namespace sistemarestaurante
         public int Impuestos;
         public int Descuento;
 
+        public int cantidad;
+
         // Constructor que inicializa los atributos de la clase con los parámetros recibidos
-        public Factura(string fecha, string medio_pago, float total, int numero_factura, int mesa, string[,] pedido, string[] precios, int estadoActual)
+        public Factura(string fecha, string medio_pago, float total, int numero_factura, int mesa, string[,] pedido, string[] precios, EstadoFactura estadoActual)
         {
             this.fecha = fecha;
             this.medio_pago = medio_pago;            
@@ -42,9 +44,9 @@ namespace sistemarestaurante
             
             /*List<Producto> Productos = new List<Producto>(); */
         }
-       
 
-     
+
+
 
 
     // Método para agregar productos a la factura, se le añade parámetro para aplicar descuento
@@ -59,7 +61,7 @@ namespace sistemarestaurante
                 precio = precio * 0.9f;
             }
             
-            Producto producto = new Producto(nombres[i], precio);
+            Producto producto = new Producto(nombres[i], precio, cantidad);
             Productos.Add(producto);
             
             Console.WriteLine($"Producto: {nombres[i]}, Precio: {precio}");

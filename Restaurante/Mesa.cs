@@ -18,18 +18,28 @@ namespace sistemarestaurante
         public string Producto { get => producto; set => producto = value; }
         public int Mesaatendida { get => mesaatendida; set => mesaatendida = value; }
 
+        public int NumeroMesa;
+
+        public bool EstaOcupada;
+
+        public List<Producto> Pedido;
+
+        public Factura factura { get ; set ;}
+
         // Constructor de la clase Mesa
         // Recibe dos parámetros: 'Mesa' que representa el número de mesa atendida, y 'cantidadmesa' que representa la cantidad de mesas disponibles
         public Mesa(byte Mesa, byte cantidadmesa) 
         {    
             // Asignamos el número de la mesa atendida al campo correspondiente
-            this.mesaatendida = Mesa;
+            mesaatendida = Mesa;
 
             // Asignamos la cantidad de mesas disponibles
-            this.mesasdisponibles = cantidadmesa;
+            mesasdisponibles = cantidadmesa;
 
             // Inicializamos la variable 'producto' como una cadena vacía ya que no tiene producto asignado inicialmente
-            this.producto = string.Empty; // Esto es para evitar que sea nulo
+            producto = string.Empty; 
+            
+            factura=null;
         }
 
         // Método para mostrar los datos de la mesa en la consola

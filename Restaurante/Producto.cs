@@ -13,7 +13,7 @@ namespace sistemarestaurante
         // Arreglo unidimensional 'precio' que almacena el precio de 12 productos diferentes.
 
 
-    public string Nombre;
+    public string Nombre { get; set; }
     public float Precio { get; set; }
     public int Cantidad { get; set; }
 

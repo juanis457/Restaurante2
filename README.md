@@ -55,7 +55,7 @@ El proyecto soporta dos configuraciones principales de compilación:
 Clona el repositorio en tu máquina local usando el siguiente comando (ajusta según el origen del repositorio):
 
 ```bash
-git clone https://github.com/usuario/sistema-restaurante.git
+[git clone https://github.com/usuario/sistema-restaurante.git](https://github.com/juanis457/Restaurante2.git)
 ```
 
 ### Paso 2: Abrir la solución en Visual Studio
